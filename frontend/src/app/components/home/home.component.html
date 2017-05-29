@@ -1,0 +1,58 @@
+<div class="pageBackground">
+  <div class="div50">
+    <div class="inputBackground">
+
+     <form (submit)="getData()" >
+         <div class="formComp textCenter">
+            <label for="">Enter latitude</label>
+         </div>
+         <div class="formComp textCenter">
+             <input type="number" name="longt" placeholder="Enter Latitude " [(ngModel)]="longt">
+         </div>
+         <div class="formComp textCenter">
+             <label for="">Enter longtitude </label>
+         </div>
+        <div class="formComp">
+             <input type="number" name="lati" placeholder="Enter Longtitude " [(ngModel)]="lati">
+         </div>
+
+         <div class="formComp">
+             <button type="submit" class="submit" > Submit</button>
+         </div>
+
+
+    </form>
+
+    </div>
+
+    <div class="distBack" *ngIf="res">
+        <h2>Nearby Cities</h2>
+        <ul>
+         <li *ngFor="let places of res"><a href="" id="{{  places.formatted_address}}" (click)="getWeather($event);false">{{ places.formatted_address}}</a></li>
+        </ul>
+    </div>
+  </div>
+    <div class="weatherBack" *ngIf="weather">
+
+
+      <h2 *ngIf="location">Location - {{ location.country}} , {{ location.name}}</h2>
+
+       <p> Cloud - {{ weather.cloud}}</p> <br>
+       <p> Feels Like (c) - {{ weather.feelslike_c}}</p> <br>
+       <p> Feels Like (f) - {{ weather.feelslike_f}}</p> <br>
+       <p> Humidity - {{ weather.humidity}}</p> <br>
+       <p> Pressure - {{ weather.pressure_in}}</p> <br>
+       <p> Tempature (c) - {{ weather.temp_c}}</p> <br>
+       <p> Tempature (f) - {{ weather.temp_f}}</p> <br>
+       <p> Wind Degree - {{ weather.wind_degree}}</p> <br>
+       <p> Wind Direction - {{ weather.wind_dir}}</p> <br>
+       <p> Wind KPH - {{ weather.wind_kph}}</p> <br>
+       <p> Wind MPH - {{ weather.wind_mph}}</p> <br>
+
+
+
+
+
+    </div>
+
+</div>
